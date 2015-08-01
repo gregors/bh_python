@@ -6,13 +6,15 @@ port = input("input port ")
 
 client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
-print "debug",host, port
 client.connect((host, port))
-client.send("GET / HTTP/1.1\r\nHost:{}\r\n\r\n".format(host))
+client.send("GET / HTTP/1.1 \r\nHost:%s\r\n\r\n" % host)
 response = client.recv(4096)
 
-# if 301 then follow up with has moved to....
 print response
 
 
+# intercept incoming mail
+# find links in mail
+# parse header info
+# output
 
